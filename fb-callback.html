@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jarvis — Facebook Auth</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; max-width: 600px; margin: 60px auto; padding: 0 20px; }
+    .token-box { background: #f0f0f0; padding: 12px; border-radius: 6px; word-break: break-all; font-family: monospace; font-size: 13px; margin: 12px 0; }
+    button { padding: 8px 16px; font-size: 14px; cursor: pointer; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h2>Jarvis — Facebook Page Setup</h2>
+  <div id="status">Processing...</div>
+  <div id="result"></div>
+  <script>
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const longToken = params.get('long_lived_token') || params.get('access_token') || '';
+
+    if (!longToken) {
+      document.getElementById('status').innerHTML = '<p class="error">No token received. You may have cancelled the login.</p>';
+    } else {
+      // Fetch pages using the token
+      fetch('https://graph.facebook.com/v21.0/me/accounts?fields=id,name,access_token,instagram_business_account&access_token=' + longToken)
+        .then(r => r.json())
+        .then(data => {
+          if (data.data && data.data.length > 0) {
+            const page = data.data[0];
+            const pageId = page.id;
+            const pageToken = page.access_token;
+            const pageName = page.name;
+            const igId = page.instagram_business_account ? page.instagram_business_account.id : 'none';
+
+            document.getElementById('status').innerHTML = '<h3 class="success">Connected: ' + pageName + '</h3>';
+            document.getElementById('result').innerHTML =
+              '<p>Add these to your <code>.env</code> file:</p>' +
+              '<div class="token-box">FACEBOOK_PAGE_ID=' + pageId + '</div>' +
+              '<div class="token-box">FACEBOOK_PAGE_TOKEN=' + pageToken + '</div>' +
+              '<p>Instagram Business Account ID: ' + igId + '</p>' +
+              '<p>Then restart Jarvis.</p>' +
+              '<button onclick="navigator.clipboard.writeText(\'FACEBOOK_PAGE_ID=' + pageId + '\\nFACEBOOK_PAGE_TOKEN=' + pageToken + '\')">Copy to clipboard</button>';
+          } else {
+            document.getElementById('status').innerHTML = '<p class="error">No Facebook Pages found. Make sure your account manages a Page.</p>';
+            document.getElementById('result').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+          }
+        })
+        .catch(e => {
+          document.getElementById('status').innerHTML = '<p class="error">Error: ' + e + '</p>';
+        });
+    }
+  </script>
+</body>
+</html>
