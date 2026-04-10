@@ -6,128 +6,221 @@
   <title>Jarvis — Content Publishing Platform</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; line-height: 1.7; }
-
-    .hero {
-      background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 100%);
-      color: #fff;
-      padding: 80px 20px;
-      text-align: center;
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+      color: #111;
+      line-height: 1.6;
+      background: #fff;
     }
-    .hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 12px; }
-    .hero p { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 32px; }
-    .hero-badge {
+
+    /* Nav */
+    nav {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a {
+      font-size: 14px;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: #111; }
+
+    /* Hero */
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      color: #111;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #666;
+      max-width: 540px;
+      line-height: 1.6;
+    }
+
+    /* Divider */
+    hr {
+      max-width: 960px;
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid #eee;
+    }
+
+    /* Features */
+    .features {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .features h2 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999;
+      margin-bottom: 32px;
+    }
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+    .feature h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #111;
+    }
+    .feature p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Platforms */
+    .platforms {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    .platforms h2 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999;
+      margin-bottom: 20px;
+    }
+    .platform-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .platform-tag {
       display: inline-block;
       padding: 6px 16px;
-      background: rgba(0, 212, 255, 0.15);
-      border: 1px solid rgba(0, 212, 255, 0.3);
-      border-radius: 20px;
-      font-size: 13px;
-      color: rgba(0, 212, 255, 0.9);
-      margin-bottom: 24px;
-    }
-
-    .features {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-    .features h2 { font-size: 28px; text-align: center; margin-bottom: 40px; }
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-    }
-    .feature-card {
-      padding: 24px;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
       background: #fafafa;
     }
-    .feature-card h3 { font-size: 16px; margin-bottom: 8px; }
-    .feature-card p { font-size: 14px; color: #555; }
 
-    .platforms {
-      background: #f9fafb;
-      padding: 48px 20px;
-      text-align: center;
-    }
-    .platforms h2 { font-size: 24px; margin-bottom: 12px; }
-    .platforms p { color: #666; margin-bottom: 24px; }
-    .platform-list {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      font-size: 18px;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .footer {
-      max-width: 900px;
+    /* Footer */
+    footer {
+      max-width: 960px;
       margin: 0 auto;
-      padding: 40px 20px;
-      border-top: 1px solid #e5e7eb;
+      padding: 32px 24px;
+      border-top: 1px solid #eee;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 12px;
     }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a { color: #2563eb; text-decoration: none; font-size: 14px; }
-    .footer-links a:hover { text-decoration: underline; }
-    .footer-copy { font-size: 13px; color: #999; }
-    .contact-link { font-size: 13px; color: #666; }
-    .contact-link a { color: #2563eb; text-decoration: none; }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a {
+      font-size: 13px;
+      color: #555;
+      text-decoration: none;
+    }
+    .footer-legal a:hover { color: #111; text-decoration: underline; }
+    .footer-meta {
+      font-size: 13px;
+      color: #aaa;
+    }
+    .footer-contact {
+      font-size: 13px;
+      color: #888;
+    }
+    .footer-contact a { color: #555; text-decoration: none; }
+    .footer-contact a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 32px; }
+      .hero { padding: 48px 24px 40px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
 
+  <nav>
+    <a href="./" class="nav-brand">Jarvis</a>
+    <div class="nav-links">
+      <a href="./tos.html">Terms</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="mailto:crazneaxbusiness@gmail.com">Contact</a>
+    </div>
+  </nav>
+
   <div class="hero">
-    <div class="hero-badge">Content Publishing Platform</div>
-    <h1>Jarvis</h1>
-    <p>A content management platform that helps creators publish and schedule video content across multiple social media platforms from a single interface.</p>
+    <h1>Publish content<br>across platforms.</h1>
+    <p>Jarvis is a content management tool for creators. Upload once, publish to TikTok, YouTube, Instagram, and Facebook with platform-specific captions, scheduling, and full control over your post settings.</p>
   </div>
+
+  <hr>
 
   <div class="features">
-    <h2>What Jarvis Does</h2>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <h3>Multi-Platform Publishing</h3>
-        <p>Upload a video once and publish it to TikTok, YouTube, Instagram, and Facebook simultaneously. Each platform gets its own optimized caption and settings.</p>
+    <h2>Features</h2>
+    <div class="feature-list">
+      <div class="feature">
+        <h3>Multi-platform publishing</h3>
+        <p>Publish a single video to multiple platforms simultaneously, each with its own caption, privacy settings, and interaction controls.</p>
       </div>
-      <div class="feature-card">
+      <div class="feature">
         <h3>Scheduling</h3>
-        <p>Schedule posts for the optimal time on each platform. View all upcoming posts in a unified calendar view across all connected accounts.</p>
+        <p>Schedule posts for the right time on each platform. A calendar view shows all upcoming content across every connected account.</p>
       </div>
-      <div class="feature-card">
-        <h3>Creator Controls</h3>
-        <p>Full control over privacy settings, interaction permissions, and commercial content disclosure. All metadata is editable before publishing.</p>
+      <div class="feature">
+        <h3>Creator controls</h3>
+        <p>Set privacy levels, enable or disable comments, duets, and stitches, and manage commercial content disclosure before publishing.</p>
       </div>
     </div>
   </div>
+
+  <hr>
 
   <div class="platforms">
-    <h2>Supported Platforms</h2>
-    <p>Publish and schedule content across major social platforms.</p>
-    <div class="platform-list">
-      <span>TikTok</span>
-      <span>YouTube</span>
-      <span>Instagram</span>
-      <span>Facebook</span>
+    <h2>Supported platforms</h2>
+    <div class="platform-row">
+      <span class="platform-tag">TikTok</span>
+      <span class="platform-tag">YouTube</span>
+      <span class="platform-tag">Instagram</span>
+      <span class="platform-tag">Facebook</span>
     </div>
   </div>
 
-  <div class="footer">
-    <div class="footer-links">
-      <a href="/jarvis-legal/tos.html">Terms of Service</a>
-      <a href="/jarvis-legal/privacy.html">Privacy Policy</a>
+  <footer>
+    <div class="footer-legal">
+      <a href="./tos.html">Terms of Service</a>
+      <a href="./privacy.html">Privacy Policy</a>
     </div>
-    <div class="contact-link">Contact: <a href="mailto:crazneaxbusiness@gmail.com">crazneaxbusiness@gmail.com</a></div>
-    <div class="footer-copy">&copy; 2026 Jarvis by CrazNeax. All rights reserved.</div>
-  </div>
+    <div class="footer-contact">Contact: <a href="mailto:crazneaxbusiness@gmail.com">crazneaxbusiness@gmail.com</a></div>
+    <div class="footer-meta">&copy; 2026 Jarvis</div>
+  </footer>
 
 </body>
 </html>
