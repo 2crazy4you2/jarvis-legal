@@ -10,31 +10,71 @@
     .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
     h2 { font-size: 18px; margin-top: 28px; }
     p { margin: 12px 0; }
-    .contact { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e0e0e0; font-size: 14px; color: #666; }
+    ul { padding-left: 20px; }
+    li { margin: 8px 0; }
+    .footer-links { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e0e0e0; font-size: 14px; }
+    .footer-links a { color: #2563eb; text-decoration: none; margin-right: 16px; }
+    .contact { margin-top: 16px; font-size: 14px; color: #666; }
   </style>
 </head>
 <body>
-  <h1>Jarvis by CrazNeax — Privacy Policy</h1>
-  <p class="subtitle">Last updated: April 9, 2026</p>
+  <h1>Jarvis — Privacy Policy</h1>
+  <p class="subtitle">Last updated: April 10, 2026</p>
 
-  <h2>What data we collect</h2>
-  <p>Jarvis collects analytics data from the app owner's own TikTok account, including follower count, video views, and video list via the TikTok Display API. It also facilitates uploading and scheduling video content to the owner's TikTok profile via the Content Posting API. No data from any other user is collected at any time.</p>
+  <h2>What Data We Collect</h2>
+  <p>When you connect your social media accounts to Jarvis, we collect the following information:</p>
+  <ul>
+    <li><strong>Account information</strong> — Your display name and profile identifier, used to show which account content will be published to.</li>
+    <li><strong>Authentication tokens</strong> — OAuth access and refresh tokens required to publish content on your behalf.</li>
+    <li><strong>Content you upload</strong> — Video files, captions, thumbnails, and publishing settings that you provide when creating a post.</li>
+    <li><strong>Publishing metadata</strong> — Records of posts made through Jarvis, including timestamps, platform, and publish status.</li>
+  </ul>
 
-  <h2>How we use the data</h2>
-  <p>Analytics data is used solely to display personal growth metrics in a private local dashboard. Video content is uploaded exclusively to the owner's own TikTok profile on the owner's instruction. No data is ever shared, sold, or transmitted to any third party.</p>
+  <h2>How We Use Your Data</h2>
+  <p>Your data is used exclusively to provide the Jarvis publishing service:</p>
+  <ul>
+    <li>To authenticate with social media platforms on your behalf.</li>
+    <li>To upload and publish video content to the platforms you select.</li>
+    <li>To schedule content for future publishing at times you specify.</li>
+    <li>To display the status of your posts (processing, published, failed).</li>
+  </ul>
+  <p>We do not use your data for advertising, profiling, or any purpose other than providing the service.</p>
 
-  <h2>Data storage</h2>
-  <p>All analytics data is stored locally on the owner's personal device in a private SQLite database. Video files are cached temporarily during the upload process and deleted immediately after uploading is complete. No data is stored on external servers.</p>
+  <h2>Data Storage and Security</h2>
+  <p>All user data, including authentication tokens and publishing history, is stored locally on the device running Jarvis. Video files are cached temporarily during the upload process and are deleted after publishing is complete.</p>
+  <p>No user data is stored on external servers. Authentication tokens are stored securely on the local device and are never transmitted to any party other than the respective social media platform's API.</p>
 
-  <h2>Third-party services</h2>
-  <p>This app uses the TikTok Login Kit, Display API, and Content Posting API in accordance with TikTok's Platform Terms of Service and Developer Policies. Access tokens are stored locally and securely on the owner's device and are never shared.</p>
+  <h2>Data Sharing</h2>
+  <p>We do not sell, share, or distribute your data to any third party. Your content is transmitted only to the social media platforms you explicitly choose to publish to (e.g., TikTok, YouTube, Instagram, Facebook) and only when you initiate the publish action.</p>
 
-  <h2>Content posting</h2>
-  <p>Video content uploaded through Jarvis is posted exclusively to the owner's own TikTok account on the owner's direct instruction. Jarvis does not post content autonomously, does not post to any other user's account, and does not retain uploaded video files after the upload process is complete.</p>
+  <h2>Third-Party Services</h2>
+  <p>Jarvis integrates with the following third-party services:</p>
+  <ul>
+    <li><strong>TikTok</strong> — Login Kit and Content Posting API, used for authentication and video publishing.</li>
+    <li><strong>YouTube</strong> — Data API v3, used for video uploads.</li>
+    <li><strong>Facebook</strong> — Graph API, used for video publishing.</li>
+    <li><strong>Instagram</strong> — Graph API, used for video publishing.</li>
+  </ul>
+  <p>Use of these services is governed by their respective terms of service and privacy policies.</p>
 
-  <h2>User rights</h2>
-  <p>As this app is solely for personal use, no external users have accounts or data stored within this application.</p>
+  <h2>User Rights</h2>
+  <p>You have the right to:</p>
+  <ul>
+    <li><strong>Access</strong> — View all data Jarvis has stored related to your accounts.</li>
+    <li><strong>Delete</strong> — Remove your connected accounts and all associated data at any time.</li>
+    <li><strong>Revoke</strong> — Disconnect platform integrations, which immediately stops Jarvis from accessing those accounts.</li>
+  </ul>
 
-  <p class="contact">For any privacy-related questions, contact: <a href="mailto:crazneaxbusiness@gmail.com">crazneaxbusiness@gmail.com</a></p>
+  <h2>Content Posting</h2>
+  <p>Jarvis only publishes content when explicitly initiated by the user. All post metadata — including captions, privacy levels, interaction settings, and commercial content disclosure — is fully controlled by the user before publishing. Jarvis does not modify, watermark, or add branding to user content.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. Continued use of Jarvis after changes are posted constitutes acceptance of the updated policy.</p>
+
+  <div class="footer-links">
+    <a href="/jarvis-legal/">Home</a>
+    <a href="/jarvis-legal/tos.html">Terms of Service</a>
+  </div>
+  <p class="contact">For privacy-related questions, contact: <a href="mailto:crazneaxbusiness@gmail.com">crazneaxbusiness@gmail.com</a></p>
 </body>
 </html>
